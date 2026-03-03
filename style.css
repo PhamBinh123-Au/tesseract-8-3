@@ -1,0 +1,147 @@
+/* --- BIẾN MÀU SẮC (Giữ nguyên) --- */
+:root {
+  --primary-color: #00d2ff;
+  --accent-color: #3a7bd5;
+  --text-color: #ffffff;
+}
+
+/* --- THIẾT LẬP NỀN VŨ TRỤ --- */
+body {
+  margin: 0;
+  padding: 0;
+  /* Nền đen sâu thẳm phối màu xanh Nebula ở góc dưới */
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Quicksand', sans-serif;
+  color: var(--text-color);
+}
+
+/* --- VŨ TRỤ ĐA TẦNG (Linh hồn của hiệu ứng) --- */
+.stars, .twinkling, .clouds, .meteors {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: -1; /* Đẩy ra sau cùng */
+}
+
+/* TẦNG 1: SAO TĨNH, XA (Mật độ cao) */
+.stars {
+  background: #000 url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/stars.png') repeat top center;
+  opacity: 0.8;
+}
+
+/* TẦNG 2: SAO LẤP LÁNH, GẦN (Chuyển động) */
+.twinkling {
+  background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/twinkling.png') repeat top center;
+  /* Chạy nhanh hơn để tạo cảm giác lấp lánh */
+  animation: move-twink-back 30s linear infinite; 
+  opacity: 0.5;
+}
+
+/* TẦNG 3: MÂY TINH VÂN (Tạo chiều sâu nền) */
+.clouds {
+    background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/clouds.png') repeat top center;
+    animation: move-clouds-back 200s linear infinite;
+    opacity: 0.3; /* Giảm độ mờ để nhìn tự nhiên hơn */
+}
+
+/* TẦNG 4: SAO BĂNG (Shooting Stars - WOW!) */
+.meteors::after {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 0 10px white, 0 0 20px rgba(0, 210, 255, 0.5); /* Thêm chút ánh xanh primary */
+    animation: shooting-star 10s linear infinite;
+    opacity: 0;
+}
+
+
+/* --- KEYFRAMES CHO CHUYỂN ĐỘNG --- */
+@keyframes move-twink-back {
+    from { background-position: 0 0; }
+    to { background-position: -1000px 500px; } /* Chạy ngắn hơn để nhanh lấp lánh */
+}
+
+@keyframes move-clouds-back {
+    from { background-position: 0 0; }
+    to { background-position: 10000px 0; }
+}
+
+@keyframes shooting-star {
+    0% { transform: translate(100vw, -10vh) rotate(-45deg); opacity: 0; }
+    5% { transform: translate(100vw, -10vh) rotate(-45deg); opacity: 1; }
+    15% { transform: translate(20vw, 80vh) rotate(-45deg); opacity: 1; }
+    20% { transform: translate(20vw, 80vh) rotate(-45deg); opacity: 0; }
+    100% { transform: translate(0,0) rotate(-45deg); opacity: 0; } /* Delay trước khi lặp lại */
+}
+
+/* --- CÁC PHẦN GIAO DIỆN (Giữ nguyên) --- */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+  animation: fadeIn 1.5s ease-out;
+}
+
+.glow-text {
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 5px;
+  text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
+  margin-bottom: 5px;
+}
+
+input {
+  width: 80%;
+  padding: 12px;
+  margin: 15px 0;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  color: white;
+  outline: none;
+  transition: 0.3s;
+}
+
+input:focus {
+  box-shadow: 0 0 15px var(--primary-color);
+}
+
+.btn-launch {
+  background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+  transition: 0.4s;
+}
+
+.btn-launch:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--primary-color);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
