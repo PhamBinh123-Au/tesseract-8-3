@@ -8,15 +8,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="stars"></div>
-    <div class="twinkling"></div>
-    <div class="clouds"></div>
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
 
     <section id="login-screen" class="glass-card">
         <h1 class="glitch">PROJECT TESSERACT</h1>
         <div class="sub-line">Data Transmission // Class of 2026</div>
-        <input type="text" id="username" placeholder="Tên đăng nhập (Vd: quynhtien)" autocomplete="off">
-        <input type="password" id="password" placeholder="Mật mã">
+        <input type="text" id="username" placeholder="Định danh (Vd: quynhtien)" autocomplete="off">
+        <input type="password" id="password" placeholder="Mật mã không gian">
         <button onclick="checkAccess()" class="btn-launch">TRUY CẬP</button>
         <p id="error-msg" style="display: none; color: #ff4d4d; margin-top: 15px;">Tín hiệu bị nhiễu. Kiểm tra lại mật mã!</p>
     </section>
@@ -24,7 +24,9 @@
     <section id="private-content" style="display: none;">
         <div class="glass-card content-box">
             <h2 id="welcome-name" class="glow-text"></h2>
-            <p id="personal-wish"></p>
+            <div class="wish-container">
+                <p id="personal-wish"></p>
+            </div>
             <div id="photo-gallery" class="gallery"></div>
             <button onclick="location.reload()" class="btn-back">TRỞ LẠI TRÁI ĐẤT</button>
         </div>
