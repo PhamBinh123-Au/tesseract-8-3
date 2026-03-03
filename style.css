@@ -1,34 +1,20 @@
-:root { --primary: #00d2ff; --accent: #3a7bd5; }
 body {
-    margin: 0; padding: 0; background: #000;
-    font-family: 'Quicksand', sans-serif; color: #fff;
+    margin: 0; padding: 0;
+    /* Nền gradient xanh đen sâu thẳm nếu ảnh nebula không load được */
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    font-family: 'Quicksand', sans-serif;
+    color: #ffffff;
     display: flex; justify-content: center; align-items: center;
     min-height: 100vh; overflow: hidden;
 }
 
-/* Nền vũ trụ động */
-.stars, .twinkling, .clouds {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+.stars {
+    background: #000 url('https://raw.githubusercontent.com/Phambinh123-Au/8th-march-class/main/img/stars.png') repeat;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
 }
-.stars { background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/stars.png') repeat; }
-.twinkling { background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/123163/twinkling.png') repeat; animation: move 200s linear infinite; }
-@keyframes move { from {background-position:0 0;} to {background-position:-10000px 5000px;} }
 
-/* Giao diện kính mờ */
-.glass-card {
-    background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px;
-    padding: 30px; text-align: center; width: 350px;
+.twinkling {
+    background: transparent url('https://raw.githubusercontent.com/Phambinh123-Au/8th-march-class/main/img/twinkling.png') repeat;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+    animation: move-twink-back 200s linear infinite;
 }
-.glitch { font-family: 'Orbitron'; letter-spacing: 3px; color: var(--primary); text-shadow: 0 0 10px var(--primary); }
-
-input {
-    width: 80%; padding: 10px; margin: 10px 0; border-radius: 5px;
-    border: 1px solid var(--primary); background: #000; color: #fff;
-}
-.btn-launch {
-    background: linear-gradient(45deg, var(--primary), var(--accent));
-    border: none; padding: 10px 25px; border-radius: 5px; color: #fff; cursor: pointer;
-}
-.gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
-.gallery img { width: 100%; border-radius: 10px; border: 1px solid #444; }
