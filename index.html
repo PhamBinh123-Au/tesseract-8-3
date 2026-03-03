@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesseract - Ký ức 12A</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="clouds"></div>
+
+    <section id="login-screen" class="glass-card">
+        <h1 class="glitch">PROJECT TESSERACT</h1>
+        <div class="sub-line">Data Transmission // Class of 2026</div>
+        <input type="text" id="username" placeholder="Tên đăng nhập (Vd: quynhtien)" autocomplete="off">
+        <input type="password" id="password" placeholder="Mật mã">
+        <button onclick="checkAccess()" class="btn-launch">TRUY CẬP</button>
+        <p id="error-msg" style="display: none; color: #ff4d4d; margin-top: 15px;">Tín hiệu bị nhiễu. Kiểm tra lại mật mã!</p>
+    </section>
+
+    <section id="private-content" style="display: none;">
+        <div class="glass-card content-box">
+            <h2 id="welcome-name" class="glow-text"></h2>
+            <p id="personal-wish"></p>
+            <div id="photo-gallery" class="gallery"></div>
+            <button onclick="location.reload()" class="btn-back">TRỞ LẠI TRÁI ĐẤT</button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
